@@ -1,0 +1,10 @@
+spacy
+transformers
+torch
+streamlit
+pdfplumber
+python-docx
+scikit-learn
+numpy
+pandas
+sentencepiece
