@@ -1,22 +1,48 @@
-import smtplib
-from email.mime.text import MIMEText
+from mailjet_rest import Client
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # This loads variables from .env into the environment
 
 def send_email(to_email, subject, body):
-    """Send an email to the specified address."""
-    # Replace with your email credentials (consider using environment variables for security)
-    sender_email = "troxelllouisee@gmail.com"
-    sender_password = "Kathan@1"
+    """Send an email using Mailjet's API."""
+    # Retrieve Mailjet API credentials from environment variables
+    api_key = os.getenv('MAILJET_API_KEY')
+    api_secret = os.getenv('MAILJET_API_SECRET')
 
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = sender_email
-    msg["To"] = to_email
+    if not api_key or not api_secret:
+        raise ValueError("Mailjet API credentials are not set in environment variables.")
 
-    try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
+    # Initialize Mailjet Client
+    mailjet = Client(auth=(api_key, api_secret), version='v3.1')
+
+    # Define the email data
+    data = {
+        'Messages': [
+            {
+                "From": {
+                    "Email": "your_verified_email@example.com",
+                    "Name": "Your Name"
+                },
+                "To": [
+                    {
+                        "Email": to_email,
+                        "Name": "Recipient Name"
+                    }
+                ],
+                "Subject": subject,
+                "TextPart": body,
+                "HTMLPart": f"<p>{body}</p>"
+            }
+        ]
+    }
+
+    # Send the email
+    result = mailjet.send.create(data=data)
+
+    # Check and print the result
+    if result.status_code == 200:
         print(f"Email sent to {to_email}")
-    except Exception as e:
-        print(f"Error sending email: {e}")
+    else:
+        print(f"Failed to send email: {result.status_code}")
+        print(result.json())

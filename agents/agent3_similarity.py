@@ -3,7 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from utils.email_notifications import send_email
 
 class SimilarityAgent:
-    def __init__(self, similarity_threshold=0.8):
+    def __init__(self, similarity_threshold=0.2):
         self.vectorizer = TfidfVectorizer()
         self.threshold = similarity_threshold
 

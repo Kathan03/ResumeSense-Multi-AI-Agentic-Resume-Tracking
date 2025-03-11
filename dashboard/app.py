@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Add the parent directory to the system path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import streamlit as st
 from agents.agent1_keyword_extraction import KeywordExtractionAgent
 from agents.agent2_summarization import SummarizationAgent
@@ -6,8 +12,8 @@ from agents.agent3_similarity import SimilarityAgent
 st.title("Resume Ranking System")
 
 # File upload for resume
-resume_file = st.file_uploader("Upload Resume (PDF/DOCX)", type=["pdf", "docx"])
-job_description_file = st.file_uploader("Upload Job Description (PDF/DOCX)", type=["pdf", "docx"])
+resume_file = st.file_uploader("Upload Resume (PDF/DOCX/TXT)", type=["pdf", "docx", "txt"])
+job_description_file = st.file_uploader("Upload Job Description (PDF/DOCX/TXT)", type=["pdf", "docx", "txt"])
 
 if resume_file and job_description_file:
     # Save uploaded files temporarily
@@ -37,6 +43,7 @@ if resume_file and job_description_file:
 
     # Agent 3: Similarity Scoring
     st.subheader("Similarity Score")
-    score = agent3.process_resume(resume_path, job_description_path, entities.get("email"))
+    #score = agent3.process_resume(resume_path, job_description_path, entities.get("email"))
+    score = agent3.process_resume(resume_path, job_description_path, "joshikathan03@gmail.com")
     if score:
         st.write(f"Similarity Score: {score:.2f}")
