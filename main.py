@@ -6,6 +6,7 @@ def main():
     resume_file = "data/resumes/KATHAN_JOSHI_RESUME.pdf"
     job_description_file = "data\job_descriptions\ds.txt"
 
+
     candidate_email = "joshikathan03@gmail.com"
 
     agent1 = KeywordExtractionAgent()
