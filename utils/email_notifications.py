@@ -21,13 +21,13 @@ def send_email(to_email, subject, body):
         'Messages': [
             {
                 "From": {
-                    "Email": "your_verified_email@example.com",
-                    "Name": "Your Name"
+                    "Email": "kathanashjoshi@gmail.com",
+                    "Name": "Kathan"
                 },
                 "To": [
                     {
                         "Email": to_email,
-                        "Name": "Recipient Name"
+                        "Name": "Dear Candidate"
                     }
                 ],
                 "Subject": subject,

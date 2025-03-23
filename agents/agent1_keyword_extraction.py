@@ -6,6 +6,7 @@ class KeywordExtractionAgent:
 
     def extract_entities(self, text):
         """Extract entities like skills, experience, education, and email from text."""
+        print(text)
         doc = self.nlp(text)
         entities = {
             "skills": [],

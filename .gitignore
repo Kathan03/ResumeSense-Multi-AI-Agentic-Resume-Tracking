@@ -1,3 +1,6 @@
 .venv/
 .idea/
 .env
+agents/__pychache__
+dashboard/__pychache__
+utils/__pychache__
