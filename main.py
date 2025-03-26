@@ -4,7 +4,7 @@ from agents.agent3_similarity import SimilarityAgent
 
 def main():
     resume_file = "data/resumes/KATHAN_JOSHI_RESUME.pdf"
-    job_description_file = "data\job_descriptions\ds.txt"
+    job_description_file = "data/job_descriptions/ds.txt"
 
 
     candidate_email = "joshikathan03@gmail.com"
@@ -12,6 +12,7 @@ def main():
     agent1 = KeywordExtractionAgent()
     agent2 = SummarizationAgent()
     agent3 = SimilarityAgent()
+
 
     print("Processing resume...")
     entities = agent1.process_resume(resume_file)
