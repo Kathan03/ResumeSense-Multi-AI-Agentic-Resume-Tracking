@@ -1,0 +1,44 @@
+About the job
+When you join Verizon
+
+You want more out of a career. A place to share your ideas freely — even if they’re daring or different. Where the true you can learn, grow, and thrive. At Verizon, we power and empower how people live, work and play by connecting them to what brings them joy. We do what we love — driving innovation, creativity, and impact in the world. Our V Team is a community of people who anticipate, lead, and believe that listening is where learning begins. In crisis and in celebration, we come together — lifting our communities and building trust in how we show up, everywhere & always. Want in? Join the V Team Life.
+
+What You’ll Be Doing...
+
+The Financial Planning and Analytical Services team addresses high-impact, analytically driven projects focused within three core pillars: Forecasting, Involuntary Churn & Bad Debt and Credit optimization. In the role of Consultant, Data Science, you will:
+
+Work with terabytes of data at scale and bring reliable and scalable real time insights.
+Apply advanced state of the art end to end analysis techniques and ML algorithms to provide a best-in-class customer experience.
+Make recommendations based on data with excellent visual representations of stories based on data for making critical business decisions.
+Collaborate with cross functional teams i.e., engineers, managers, stakeholders and identify opportunities to improve our products and customer experience.
+Develop comprehensive understanding of data and complexity of multiple systems to develop a seamless data pipeline which can visualize data at scale.
+Build Machine / Deep Learning models. Build end to end Data Science solutions.
+Work with Teradata, Spark and GCP.
+Work closely with leaderships, data engineering and data science team to continuously and collaboratively ship new models, algorithms and improvements into production.
+
+What We’re Looking For...
+
+You have strong analytical skills and coding skills, and are eager to work in a collaborative environment with global teams to drive ML applications in business problems, develop end to end analytical solutions and communicate insights and findings to leadership. You work independently and are always willing to learn new technologies. You thrive in a dynamic environment and are able to interact with various partners and cross functional teams to implement data science driven business solutions.
+
+You'll Need To Have
+
+Bachelor's degree or four or more years of work experience.
+Four or more years of relevant experience required, demonstrated through work experience and/or military experience.
+Experience with Data Science and Machine Learning, including but not limited to Regression, Classification, Ensemble Methods, Deep Learning, Reinforcement Learning, GenAI, NLP, recommendation systems, conversational systems, information retrieval, computer vision, etc.
+Experience in one or more languages like Java, R, matlab, Python - generators, iterators, comprehensions, Numpy, Pandas, matplotlib, sklearn, keras, tensorflow, pytorch.
+Experience with Visualization tools like Qlik, Tableau, matplotlib etc.
+
+Even better if you have one or more of the following:
+
+Good grasp of Statistics and Probability.
+Ability to work in a fast paced, dynamic work environment.
+Excellent interpersonal, verbal and written communication skills.
+Knowledge of big data tools (SQL, Spark, and Splunk) i.e., manipulating mining data from these systems.
+Work experience in descriptive, predictive and prescriptive analytics in financial area.
+Experience in augmenting, fine tuning LLM solutions.
+
+If Verizon and this role sound like a fit for you, we encourage you to apply even if you don’t meet every “even better” qualification listed above.
+
+Where you’ll be working
+
+In this hybrid role, you'll have a defined work location that includes work from home and a minimum eight assigned office days per month that will be set by your manager.

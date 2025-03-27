@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeSense - AI Recruitment Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo">Resume<span>Sense.</span></a>
+    <div class="header-controls">
+      <button class="chat-toggle" id="chatToggle">
+        <i class='bx bx-message-dots'></i>
+      </button>
+      <div class="theme-toggle" id="themeToggle">
+        <svg class="theme-icon" viewBox="0 0 24 24">
+          <!-- Only outline drawn -->
+          <path class="sun" d="M12 4V2m0 20v-2m4.95-14.95l1.414-1.414M5.636 18.364L7.05 16.95M20 12h2M2 12h2m14.95 4.95l1.414 1.414M5.636 5.636L7.05 7.05M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path class="moon" d="M20.5 15.5a8.5 8.5 0 0 1-11.9-8.9 8.5 8.5 0 1 0 11.9 8.9z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">AI-Powered Recruitment Optimization</h1>
+        <!-- Upload Card Container -->
+        <div class="upload-card">
+          <div class="upload-section">
+            <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
+              <div class="file-input-group">
+                <label class="file-input">
+                  <input type="file" name="resume" required>
+                  <span class="file-label">Upload Resume</span>
+                  <i class='bx bx-file-blank'></i>
+                </label>
+                <label class="file-input">
+                  <input type="file" name="job_desc" required>
+                  <span class="file-label">Upload Job Description</span>
+                  <i class='bx bx-file-blank'></i>
+                </label>
+              </div>
+              <button type="submit" class="submit-btn">Analyze Documents</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div id="results" class="results-grid"></div>
+      <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Analyzing Documents...</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chat Sidebar -->
+  <div class="chat-sidebar" id="chatSidebar">
+    <div class="chat-header">
+      <h3>Recruitment Assistant</h3>
+      <button class="close-chat" id="closeChat">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="default-chat-message">
+        Please upload and submit the resume and job description first to chat.
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Ask about candidates..." id="userInput" disabled>
+      <button id="sendMessage" disabled><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Particles Background -->
+  <div class="particles-container" id="particles-container"></div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

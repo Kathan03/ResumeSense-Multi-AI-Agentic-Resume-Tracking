@@ -65,7 +65,7 @@ class ChatbotAgent:
 
     def _initialize_qa_chain(self):
         # Change from deprecated OpenAI to ChatOpenAI
-        llm = ChatOpenAI(model="gpt-4o")  # or "gpt-3.5-turbo"
+        llm = ChatOpenAI(model="gpt-4o-mini")  # or "gpt-3.5-turbo"
 
         # Update retrieval chain
         self.qa = RetrievalQA.from_chain_type(
