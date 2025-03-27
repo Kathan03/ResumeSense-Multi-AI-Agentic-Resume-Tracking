@@ -5,11 +5,22 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
 
 
 load_dotenv()
-
 api_key = os.getenv('OPENAI_API_KEY')
+
+
+template = """You are an assistant that answers questions based on the provided context. If the context does not provide enough information to answer the question, you can use your own knowledge to answer it.
+
+Question: {question}
+
+Context: {context}
+
+Please answer the question. If the context doesn't have enough information, use your general knowledge, but note if the answer is from general knowledge."""
+prompt = PromptTemplate(input_variables=["question", "context"], template=template)
+
 class ChatbotAgent:
     def __init__(self, resume_file_path, job_description_file_path):
         os.environ["OPENAI_API_KEY"] = api_key
@@ -54,12 +65,11 @@ class ChatbotAgent:
             raise
 
     def _load_vector_store(self, resume_file_path):
-        save_dir = os.path.join("models/summarization_model", os.path.basename(resume_file_path))
-        index_path = os.path.join(save_dir, "index.faiss")
-        if os.path.exists(index_path):
+        base_name = os.path.basename(resume_file_path).split('.')[0]
+        save_dir = os.path.join("models", "summarization_model", base_name)
+        if os.path.exists(save_dir):
             embeddings = OpenAIEmbeddings()
-            index = faiss.read_index(index_path)
-            self.db = FAISS(index=index, embeddings=embeddings)
+            self.db = FAISS.load_local(save_dir, embeddings)
         else:
             self._initialize_vector_store()
 
@@ -72,7 +82,8 @@ class ChatbotAgent:
             llm=llm,
             chain_type="stuff",
             retriever=self.db.as_retriever(),
-            return_source_documents=True
+            return_source_documents=True,
+            chain_type_kwargs={"prompt": prompt}
         )
 
     def answer_query(self, query):
