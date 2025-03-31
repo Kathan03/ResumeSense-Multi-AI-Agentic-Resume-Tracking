@@ -11,6 +11,8 @@ from langchain.prompts import PromptTemplate
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 
 template = """You are an assistant that answers questions based on the provided context. If the context does not provide enough information to answer the question, you can use your own knowledge to answer it.
 
@@ -53,7 +55,7 @@ class ChatbotAgent:
     def _save_vector_store(self):
         try:
             base_name = os.path.basename(self.resume_file_path).split('.')[0]  # Get filename without extension
-            save_dir = os.path.join("models", "summarization_model", base_name)
+            save_dir = os.path.join(BASE_DIR, "models", "summarization_model", base_name)
 
             # Create directory if not exists
             os.makedirs(save_dir, exist_ok=True)
@@ -66,7 +68,7 @@ class ChatbotAgent:
 
     def _load_vector_store(self, resume_file_path):
         base_name = os.path.basename(resume_file_path).split('.')[0]
-        save_dir = os.path.join("models", "summarization_model", base_name)
+        save_dir = os.path.join(BASE_DIR, "models", "summarization_model", base_name)
         if os.path.exists(save_dir):
             embeddings = OpenAIEmbeddings()
             self.db = FAISS.load_local(save_dir, embeddings)

@@ -3,6 +3,7 @@ import os
 import logging
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
+import stat
 
 # Load environment variables first
 load_dotenv()
@@ -170,4 +171,4 @@ def uploaded_file(filename):
         return jsonify({"error": "File not found"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7860, debug=True)
+    app.run(host='0.0.0.0', port=7860, debug=False)

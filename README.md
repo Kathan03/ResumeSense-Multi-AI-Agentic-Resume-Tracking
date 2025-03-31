@@ -1,3 +1,13 @@
+title: ResumeSense
+emoji: 🚀
+colorFrom: red
+colorTo: yellow
+sdk: docker
+pinned: false
+license: mit
+short_description: This is a Resume Screening Assistant for HR
+
+
 # ResumeSense: Multi-Agent based Smart Candidate Screening System 
 
 ## Overview
